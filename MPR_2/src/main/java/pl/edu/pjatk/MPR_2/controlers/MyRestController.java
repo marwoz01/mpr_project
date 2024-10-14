@@ -18,12 +18,17 @@ public class MyRestController {
 
     @GetMapping("capybara/all")
     public List<Capybara> getAll() {
-        return this.capybaraService.getCapybaraList();
+        return this.capybaraService.getAllCapybaras();
+    }
+
+    @GetMapping("capybara/name/{name}")
+    public List<Capybara> getByName(@PathVariable String name) {
+        return this.capybaraService.getCapybaraByName(name);
     }
 
     @GetMapping("capybara/{id}")
     public Capybara getById(@PathVariable int id) {
-        return this.capybaraService.getCapybaraById(id);
+        return this.capybaraService.createCapybara(id);
     }
 
     @PostMapping("capybara")
